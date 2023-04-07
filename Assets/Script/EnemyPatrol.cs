@@ -1,4 +1,3 @@
-
 using UnityEngine;
 
 public class EnemyPatrol : MonoBehaviour
@@ -31,5 +30,13 @@ public class EnemyPatrol : MonoBehaviour
         }
 
     }
-}
+    private void onCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.transform.CompareTag("Player"))
+        {
+            PlayerHealth playerHealth = collision.transform.GetComponent<PlayerHealth>();
+            playerHealth.TakeDamage(20);
+        }
 
+    }
+}
